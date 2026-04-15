@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #1a1a1a;
+  background-color: #ffffff;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Playfair Display', serif;
+}
+
+@layer components {
+  .nav-link {
+    @apply text-sm font-medium text-stone-700 hover:text-amber-700 transition-colors duration-200 relative;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-amber-700 transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl font-bold text-stone-900 mb-6 uppercase tracking-wide;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .gold-divider {
+    @apply w-16 h-1 bg-gradient-to-r from-amber-700 to-amber-600 mb-8;
+  }
+
+  .service-card {
+    @apply bg-white border border-stone-200 p-6 rounded-sm hover:shadow-md hover:border-amber-300 transition-all duration-300 cursor-pointer;
+  }
+
+  .btn-primary {
+    @apply bg-amber-800 text-white px-8 py-3 font-medium tracking-wide hover:bg-amber-900 transition-colors duration-200 uppercase;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.05em;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-amber-700 text-amber-800 px-8 py-3 font-medium tracking-wide hover:bg-amber-50 transition-colors duration-200 uppercase;
+  }
+
+  .form-input {
+    @apply w-full border border-stone-300 px-4 py-3 text-sm focus:outline-none focus:border-amber-700 transition-colors duration-200 bg-white;
+  }
+}
+
+@layer utilities {
+  .font-serif-display {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-cormorant {
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .scroll-mt-24 {
+    scroll-margin-top: 6rem;
+  }
+}
