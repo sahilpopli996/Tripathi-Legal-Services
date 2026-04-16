@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail } from 'lucide-react';
 
 const quickLinks = [
   { label: 'Home', href: '#home' },
@@ -22,63 +22,68 @@ const serviceLinks = [
 export default function Footer() {
   return (
     <footer className="bg-stone-900 text-stone-300">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
-          {/* LOGO SECTION */}
-          <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
+      {/* MAIN */}
+      <div className="max-w-[1400px] mx-auto px-10 lg:px-16 py-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 text-center lg:text-left justify-items-center lg:justify-items-start">
 
-              {/* 🔥 REPLACED SVG WITH IMAGE */}
+          {/* LOGO */}
+          <div className="max-w-md">
+            <div className="flex items-center justify-center lg:justify-start gap-5 mb-6">
               <img
                 src="/tls.jpg"
                 alt="TLS Logo"
-                className="w-10 h-10 object-contain"
+                className="w-16 h-16 object-contain"
               />
 
               <div>
                 <p
-                  className="text-white text-sm font-semibold leading-snug"
+                  className="text-white text-xl font-semibold tracking-wide"
                   style={{ fontFamily: "'Playfair Display', serif" }}
                 >
                   Tripathi Legal
                 </p>
-                <p className="text-stone-400 text-xs">Services-2021</p>
+                <p className="text-stone-400 text-sm tracking-wide">
+                  Services-2021
+                </p>
               </div>
             </div>
 
-            <p className="text-xs text-stone-400 leading-relaxed mt-4">
-              Delhi-based legal consultancy specializing in comprehensive legal services across diverse disciplines.
+            <p className="text-sm text-stone-400 leading-relaxed">
+              Delhi-based legal consultancy specializing in comprehensive legal services across diverse disciplines, delivering trusted and result-oriented solutions.
             </p>
 
-            <div className="mt-5 flex items-center gap-3">
+            <div className="mt-7 flex justify-center lg:justify-start gap-4">
               <a
                 href="tel:09266796902"
-                className="w-8 h-8 rounded-full border border-stone-600 flex items-center justify-center hover:border-amber-600 hover:text-amber-500 transition"
+                className="w-11 h-11 rounded-full border border-stone-600 flex items-center justify-center hover:border-amber-600 hover:text-amber-500 transition-all duration-200"
               >
-                <Phone size={13} />
+                <Phone size={17} />
               </a>
 
               <a
                 href="mailto:advapoorvat@gmail.com"
-                className="w-8 h-8 rounded-full border border-stone-600 flex items-center justify-center hover:border-amber-600 hover:text-amber-500 transition"
+                className="w-11 h-11 rounded-full border border-stone-600 flex items-center justify-center hover:border-amber-600 hover:text-amber-500 transition-all duration-200"
               >
-                <Mail size={13} />
+                <Mail size={17} />
               </a>
             </div>
           </div>
 
           {/* QUICK LINKS */}
           <div>
-            <h4 className="text-white text-sm font-semibold mb-5 uppercase tracking-widest">
+            <h4 className="text-white text-lg font-semibold mb-7 uppercase tracking-wider">
               Quick Links
             </h4>
 
-            <ul className="space-y-2.5">
+            <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className="text-xs hover:text-amber-400 flex gap-2">
-                    <span className="w-1 h-1 bg-amber-700 rounded-full mt-1"></span>
+                  <a
+                    href={link.href}
+                    className="text-sm text-stone-400 hover:text-amber-400 transition flex justify-center lg:justify-start items-center gap-2"
+                  >
+                    <span className="w-1.5 h-1.5 bg-amber-700 rounded-full"></span>
                     {link.label}
                   </a>
                 </li>
@@ -88,15 +93,18 @@ export default function Footer() {
 
           {/* SERVICES */}
           <div>
-            <h4 className="text-white text-sm font-semibold mb-5 uppercase tracking-widest">
+            <h4 className="text-white text-lg font-semibold mb-7 uppercase tracking-wider">
               Practice Areas
             </h4>
 
-            <ul className="space-y-2.5">
+            <ul className="space-y-3">
               {serviceLinks.map((service) => (
                 <li key={service}>
-                  <a href="#services" className="text-xs hover:text-amber-400 flex gap-2">
-                    <span className="w-1 h-1 bg-amber-700 rounded-full mt-1"></span>
+                  <a
+                    href="#services"
+                    className="text-sm text-stone-400 hover:text-amber-400 transition flex justify-center lg:justify-start items-center gap-2"
+                  >
+                    <span className="w-1.5 h-1.5 bg-amber-700 rounded-full"></span>
                     {service}
                   </a>
                 </li>
@@ -104,51 +112,24 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* CONTACT */}
-          <div>
-            <h4 className="text-white text-sm font-semibold mb-5 uppercase tracking-widest">
-              Contact Information
-            </h4>
-
-            <div className="space-y-4">
-              <div className="flex gap-3">
-                <MapPin size={14} className="text-amber-600 mt-1" />
-                <address className="text-xs not-italic leading-relaxed">
-                  Chamber No. 818A & 661,<br />
-                  Lawyer's Chamber Block,<br />
-                  Dwarka District Court,<br />
-                  Sector-10, Dwarka,<br />
-                  New Delhi – 110077
-                </address>
-              </div>
-
-              <div className="flex gap-3">
-                <Phone size={14} className="text-amber-600" />
-                <a href="tel:09266796902" className="text-xs hover:text-amber-400">
-                  0-9266796902
-                </a>
-              </div>
-
-              <div className="flex gap-3">
-                <Mail size={14} className="text-amber-600" />
-                <a href="mailto:advapoorvat@gmail.com" className="text-xs hover:text-amber-400">
-                  advapoorvat@gmail.com
-                </a>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
       {/* BOTTOM BAR */}
       <div className="border-t border-stone-800">
-        <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row justify-between text-xs text-stone-500">
-          <p>© {new Date().getFullYear()} Tripathi Legal Services-2021. All rights reserved.</p>
-          <p className="text-center max-w-md">
-            This website complies with Bar Council of India Rules. Content is for informational purposes only.
+        <div className="max-w-[1400px] mx-auto px-10 lg:px-16 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-stone-500 text-center sm:text-left">
+
+          <p>
+            © {new Date().getFullYear()} Tripathi Legal Services-2021. All rights reserved.
           </p>
+
+          <p className="max-w-xl">
+            This website complies with Bar Council of India Rules. Content is for informational purposes only and does not constitute legal advice.
+          </p>
+
         </div>
       </div>
+
     </footer>
   );
 }
