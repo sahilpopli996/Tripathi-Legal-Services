@@ -23,7 +23,6 @@ export default function Footer() {
   return (
     <footer className="bg-stone-900 text-stone-300">
 
-      {/* MAIN */}
       <div className="max-w-[1400px] mx-auto px-10 lg:px-16 py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 text-center lg:text-left justify-items-center lg:justify-items-start">
 
@@ -36,15 +35,13 @@ export default function Footer() {
                 className="w-16 h-16 object-contain"
               />
 
+              {/* ✅ FIXED TEXT */}
               <div>
                 <p
-                  className="text-white text-xl font-semibold tracking-wide"
+                  className="text-white text-xl font-semibold tracking-wide leading-tight"
                   style={{ fontFamily: "'Playfair Display', serif" }}
                 >
-                  Tripathi Legal
-                </p>
-                <p className="text-stone-400 text-sm tracking-wide">
-                  Services-2021
+                  Tripathi Legal Services-2021
                 </p>
               </div>
             </div>
@@ -115,7 +112,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* BOTTOM BAR */}
+      {/* BOTTOM */}
       <div className="border-t border-stone-800">
         <div className="max-w-[1400px] mx-auto px-10 lg:px-16 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-stone-500 text-center sm:text-left">
 

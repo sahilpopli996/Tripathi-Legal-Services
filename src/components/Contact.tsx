@@ -1,175 +1,166 @@
-import { useState } from 'react';
-import { Phone, Mail, MapPin, Send } from 'lucide-react';
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   const [form, setForm] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    message: '',
+    name: "",
+    phone: "",
+    email: "",
+    message: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // ✅ Basic validation
+    if (!form.name || !form.email || !form.phone || !form.message) {
+      alert("Please fill all fields");
+      return;
+    }
+
+    setLoading(true);
+
+    const templateParams = {
+      from_name: form.name,
+      from_email: form.email,
+      phone: form.phone,
+      message: form.message,
+    };
+
+    emailjs
+      .send(
+        "tripathi_service",       // ✅ your service ID
+        "template_vrfwilu",       // ✅ your template ID
+        templateParams,
+        "JVmqDZSHj5QU7zaFw"       // ✅ your public key
+      )
+      .then(
+        () => {
+          alert("Message sent successfully!");
+          setForm({
+            name: "",
+            phone: "",
+            email: "",
+            message: "",
+          });
+        },
+        (error) => {
+          console.error(error);
+          alert("Failed to send message. Try again.");
+        }
+      )
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   return (
-    <section id="contact" className="py-20 bg-white scroll-mt-24">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-14">
-          <div className="gold-divider mx-auto"></div>
-          <h2 className="section-heading">For Consultation</h2>
-          <p className="text-sm text-stone-500 max-w-md mx-auto mt-1">
-            Legal Guidance — Reach out to us for personalized legal assistance.
+    <section id="contact" className="py-20 px-6 bg-white">
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
+
+        {/* LEFT FORM */}
+        <div>
+          <h2 className="text-2xl font-semibold mb-8">
+            Send Us a Message
+          </h2>
+
+          <form onSubmit={handleSubmit} className="space-y-6">
+
+            {/* NAME */}
+            <div>
+              <label className="text-sm block mb-1">Name</label>
+              <input
+                type="text"
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                placeholder="Your full name"
+                className="w-full border p-3 outline-none focus:border-amber-700"
+              />
+            </div>
+
+            {/* PHONE */}
+            <div>
+              <label className="text-sm block mb-1">Phone No.</label>
+              <input
+                type="text"
+                name="phone"
+                value={form.phone}
+                onChange={handleChange}
+                placeholder="Your contact number"
+                className="w-full border p-3 outline-none focus:border-amber-700"
+              />
+            </div>
+
+            {/* EMAIL */}
+            <div>
+              <label className="text-sm block mb-1">Email Address</label>
+              <input
+                type="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                placeholder="your@email.com"
+                className="w-full border p-3 outline-none focus:border-amber-700"
+              />
+            </div>
+
+            {/* MESSAGE */}
+            <div>
+              <label className="text-sm block mb-1">Message</label>
+              <textarea
+                name="message"
+                value={form.message}
+                onChange={handleChange}
+                placeholder="Briefly describe your legal matter..."
+                className="w-full border p-3 h-32 outline-none focus:border-amber-700"
+              />
+            </div>
+
+            {/* BUTTON */}
+            <button
+              type="submit"
+              disabled={loading}
+              className="bg-amber-800 text-white px-6 py-3 font-medium hover:bg-amber-900 transition disabled:opacity-50"
+            >
+              {loading ? "Sending..." : "SEND MESSAGE"}
+            </button>
+          </form>
+        </div>
+
+        {/* RIGHT SIDE */}
+        <div className="space-y-6">
+          <h2 className="text-2xl font-semibold">
+            Contact Information
+          </h2>
+
+          <p>
+            <strong>Office Address:</strong><br />
+            Chamber No. 818A,<br />
+            Lawyer's Chamber Block,<br />
+            Dwarka District Court,<br />
+            Sector-10, Dwarka, New Delhi – 110077
+          </p>
+
+          <p>
+            <strong>Phone:</strong><br />
+            0-9266796902
+          </p>
+
+          <p>
+            <strong>Email:</strong><br />
+            advapoorvat@gmail.com
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-20">
-          <div>
-            <h3
-              className="text-lg font-semibold text-stone-900 mb-6"
-              style={{ fontFamily: "'Playfair Display', serif" }}
-            >
-              Send Us a Message
-            </h3>
-
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label className="block text-xs font-medium text-stone-500 uppercase tracking-wider mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  value={form.name}
-                  onChange={handleChange}
-                  placeholder="Your full name"
-                  className="form-input"
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-medium text-stone-500 uppercase tracking-wider mb-2">
-                  Phone No.
-                </label>
-                <input
-                  type="tel"
-                  name="phone"
-                  value={form.phone}
-                  onChange={handleChange}
-                  placeholder="Your contact number"
-                  className="form-input"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-medium text-stone-500 uppercase tracking-wider mb-2">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={form.email}
-                  onChange={handleChange}
-                  placeholder="your@email.com"
-                  className="form-input"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-medium text-stone-500 uppercase tracking-wider mb-2">
-                  Message
-                </label>
-                <textarea
-                  name="message"
-                  value={form.message}
-                  onChange={handleChange}
-                  rows={5}
-                  placeholder="Briefly describe your legal matter..."
-                  className="form-input resize-none"
-                />
-              </div>
-
-              <button type="submit" className="btn-primary flex items-center gap-2 text-sm uppercase tracking-widest">
-                <Send size={14} />
-                Send Message
-              </button>
-            </form>
-          </div>
-
-          <div>
-            <h3
-              className="text-lg font-semibold text-stone-900 mb-6"
-              style={{ fontFamily: "'Playfair Display', serif" }}
-            >
-              Contact Information
-            </h3>
-
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-amber-50 flex items-center justify-center flex-shrink-0">
-                  <MapPin size={18} className="text-amber-800" strokeWidth={1.5} />
-                </div>
-                <div>
-                  <p className="text-xs font-medium text-stone-500 uppercase tracking-wider mb-1">Office Address</p>
-                  <address className="not-italic text-sm text-stone-700 leading-relaxed">
-                    Chamber No. 818A ; <br />
-                    Lawyer's Chamber Block,<br />
-                    Dwarka District Court,<br />
-                    Sector-10, Dwarka, New Delhi – 110077
-                  </address>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-amber-50 flex items-center justify-center flex-shrink-0">
-                  <Phone size={18} className="text-amber-800" strokeWidth={1.5} />
-                </div>
-                <div>
-                  <p className="text-xs font-medium text-stone-500 uppercase tracking-wider mb-1">Phone</p>
-                  <a
-                    href="tel:09266796902"
-                    className="text-sm text-stone-700 hover:text-amber-800 transition-colors"
-                  >
-                    0-9266796902
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-amber-50 flex items-center justify-center flex-shrink-0">
-                  <Mail size={18} className="text-amber-800" strokeWidth={1.5} />
-                </div>
-                <div>
-                  <p className="text-xs font-medium text-stone-500 uppercase tracking-wider mb-1">Email</p>
-                  <a
-                    href="mailto:advapoorvat@gmail.com"
-                    className="text-sm text-stone-700 hover:text-amber-800 transition-colors"
-                  >
-                    advapoorvat@gmail.com
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-10 p-6 bg-stone-900 text-white">
-              <p
-                className="text-base italic mb-3 text-stone-300"
-                style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.1rem' }}
-              >
-                "We believe in accessible, transparent, and personalized legal guidance."
-              </p>
-              <p className="text-xs text-stone-400 leading-relaxed">
-                Available for consultation during working hours. For urgent matters, please call directly.
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

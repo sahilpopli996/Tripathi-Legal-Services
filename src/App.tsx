@@ -7,10 +7,13 @@ import Blog from './components/Blog'
 import Contact from './components/Contact'
 import FloatingContact from './components/FloatingContact'
 import Footer from './components/Footer'
+import DisclaimerModal from "./components/DisclaimerModal";
+
 
 export default function App() {
   return (
     <div className="min-h-screen bg-white">
+      <DisclaimerModal />
       <Header />
       <Hero />
       <About />
