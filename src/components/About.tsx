@@ -49,31 +49,34 @@ export default function About() {
           </h2>
 
           {/* QUOTE */}
-          <blockquote
-            className="text-lg md:text-xl italic text-stone-600 mb-6 text-center"
-            style={{ fontFamily: "'Cormorant Garamond', serif" }}
-          >
-            "The law is a shield for the weak and a sword for the just."
-          </blockquote>
+        <blockquote
+  className="text-2xl md:text-3xl italic text-stone-800 mb-8 text-center leading-relaxed"
+  style={{ fontFamily: "'Cormorant Garamond', serif" }}
+>
+  “The law is a shield for the weak and a sword for the just.”
+</blockquote>
 
           {/* TEXT */}
-          <div className="space-y-4 text-sm md:text-base text-stone-600 leading-relaxed text-justify">
-            <p>
-              The firm is a dynamic, Delhi-based consultancy specializing in a wide range of legal services,
-              including arbitration, civil and criminal litigation, contract law, mediation, non-disclosure
-              agreements, property law and related fields, to provide comprehensive support for clients'
-              diverse legal needs.
-            </p>
+<div
+  className="space-y-6 text-xl md:text-2xl text-stone-700 leading-relaxed text-justify"
+  style={{ fontFamily: "'Cormorant Garamond', serif" }}
+>
+  <p>
+    The firm is a dynamic, Delhi-based consultancy specializing in a wide range of legal services,
+    including arbitration, civil and criminal litigation, contract law, mediation, non-disclosure
+    agreements, property law and related fields, to provide comprehensive support for clients'
+    diverse legal needs.
+  </p>
 
-            <p>
-              We are committed to delivering high-quality, personalized legal solutions with a strong focus
-              on resolution and exceptional client care. Our approach involves crafting tailored strategies,
-              offering attentive, responsive, and supportive guidance throughout every stage of the legal process.
-            </p>
-          </div>
+  <p>
+    We are committed to delivering high-quality, personalized legal solutions with a strong focus
+    on resolution and exceptional client care. Our approach involves crafting tailored strategies,
+    offering attentive, responsive, and supportive guidance throughout every stage of the legal process.
+  </p>
+</div>
 
           {/* TAGS */}
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
+          {/* <div className="mt-8 flex flex-wrap justify-center gap-3">
             {['Arbitration', 'Civil Litigation', 'Contract Law', 'Property Law', 'Mediation'].map((tag) => (
               <span
                 key={tag}
@@ -82,7 +85,7 @@ export default function About() {
                 {tag}
               </span>
             ))}
-          </div>
+          </div> */}
 
         </div>
       </div>
