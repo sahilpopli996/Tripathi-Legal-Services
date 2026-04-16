@@ -118,7 +118,7 @@ export default function Contact() {
                 <div>
                   <p className="text-xs font-medium text-stone-500 uppercase tracking-wider mb-1">Office Address</p>
                   <address className="not-italic text-sm text-stone-700 leading-relaxed">
-                    Chamber No. 818A &amp; 661,<br />
+                    Chamber No. 818A ; <br />
                     Lawyer's Chamber Block,<br />
                     Dwarka District Court,<br />
                     Sector-10, Dwarka, New Delhi – 110077

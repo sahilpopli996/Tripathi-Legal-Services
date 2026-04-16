@@ -14,8 +14,8 @@ export default function App() {
       <Header />
       <Hero />
       <About />
+       <WhyChooseUs />
       <Services />
-      <WhyChooseUs />
       <Blog />
       <Contact />
       <FloatingContact />
