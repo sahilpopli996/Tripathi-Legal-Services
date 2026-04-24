@@ -11,97 +11,82 @@ const highlights = [
 
 export default function WhyChooseUs() {
   return (
-    <section id="why-choose-us" className="py-16 bg-white scroll-mt-24">
+    <section id="why-choose-us" className="py-20 bg-white scroll-mt-24">
 
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
 
-        {/* 🔥 IMAGE BANNER */}
-        <div className="mb-12">
-          <div className="flex justify-center">
-            <div className="relative w-[70%] md:w-[70%] h-[240px] md:h-[300px] overflow-hidden rounded-sm">
+        {/* IMAGE BANNER */}
+        <div className="mb-12 flex justify-center">
+          <div className="relative w-[70%] md:w-[70%] h-[240px] md:h-[300px] overflow-hidden rounded-sm">
 
-              <img
-                src="/whychooseus.jpg"
-                alt="Why Choose Us"
-                className="w-full h-full object-center"
-              />
+            <img
+              src="/whychooseus.jpg"
+              alt="Why Choose Us"
+              className="w-full h-full object-cover"
+            />
 
-              {/* LIGHT OVERLAY */}
-              <div className="absolute inset-0 bg-black/15"></div>
-
-              {/* TEXT */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <p
-                  className="text-lg md:text-xl text-white italic"
-                  style={{ fontFamily: "'Cormorant Garamond', serif" }}
-                >
-                 
-                </p>
-              </div>
-
-            </div>
+            <div className="absolute inset-0 bg-black/15"></div>
           </div>
         </div>
 
-        {/* CONTENT */}
-        <div className="grid md:grid-cols-2 gap-10 items-start">
+        {/* TEXT CONTENT CENTER */}
+        <div className="text-center max-w-3xl mx-auto">
 
-          {/* LEFT */}
-          <div>
-            <div className="w-12 h-[3px] bg-amber-700 mb-4"></div>
+          <div className="w-12 h-[3px] bg-amber-700 mx-auto mb-4"></div>
 
-            <h2
-              className="text-2xl md:text-3xl font-bold text-stone-900 mb-5"
-              style={{ fontFamily: "'Playfair Display', serif" }}
+          <h2
+            className="text-2xl md:text-3xl font-bold text-stone-900 mb-6"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
+            WHY CHOOSE US
+          </h2>
+
+          <div className="space-y-4 text-sm md:text-base text-stone-600 leading-relaxed">
+            <p>
+              We provide legal consultancy of the highest standard, upholding professionalism, integrity,
+              and ethics. Our experienced team ensures clients operate within the legal framework, mitigate
+              risks, and protect their interests through personalized strategies tailored to each client's
+              unique needs, delivering innovative and effective solutions across diverse legal disciplines
+              to achieve optimal resolutions.
+            </p>
+
+            <p>
+              Our firm is committed to precision, confidentiality, and unwavering client satisfaction. We
+              offer transparent, cost-effective fee structures with no hidden charges, providing high-quality
+              and customized legal representation in areas including Arbitration, Acquisitions & Bifurcation,
+              Compliance, Corporate Law, Contract Drafting, Dispute Redressal, Litigation, Negotiation,
+              Mergers, and Property Law.
+            </p>
+          </div>
+        </div>
+
+        {/* CARDS BELOW (3 x 2 GRID) */}
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+          {highlights.map(({ icon: Icon, title, desc }) => (
+            <div
+              key={title}
+              className="p-5 border border-stone-200 hover:border-amber-400 hover:shadow-md transition duration-300 bg-white text-center"
             >
-              WHY CHOOSE US
-            </h2>
+              <div className="w-10 h-10 rounded-full bg-amber-50 flex items-center justify-center mx-auto mb-3">
+                <Icon size={18} className="text-amber-800" strokeWidth={1.5} />
+              </div>
 
-            <div className="space-y-4 text-sm md:text-base text-stone-600 leading-relaxed text-justify">
-              <p>
-                We provide legal consultancy of the highest standard, upholding professionalism, integrity,
-                and ethics. Our experienced team ensures clients operate within the legal framework, mitigate
-                risks, and protect their interests through personalized strategies tailored to each client's
-                unique needs, delivering innovative and effective solutions across diverse legal disciplines
-                to achieve optimal resolutions.
-              </p>
+              <h4
+                className="text-sm font-semibold text-stone-900 mb-1"
+                style={{ fontFamily: "'Playfair Display', serif" }}
+              >
+                {title}
+              </h4>
 
-              <p>
-                Our firm is committed to precision, confidentiality, and unwavering client satisfaction. We
-                offer transparent, cost-effective fee structures with no hidden charges, providing high-quality
-                and customized legal representation in areas including Arbitration, Acquisitions & Bifurcation,
-                Compliance, Corporate Law, Contract Drafting, Dispute Redressal, Litigation, Negotiation,
-                Mergers, and Property Law.
+              <p className="text-xs text-stone-500 leading-relaxed">
+                {desc}
               </p>
             </div>
-          </div>
-
-          {/* RIGHT CARDS */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {highlights.map(({ icon: Icon, title, desc }) => (
-              <div
-                key={title}
-                className="p-4 border border-stone-200 hover:border-amber-400 hover:shadow-md transition duration-300 bg-white"
-              >
-                <div className="w-9 h-9 rounded-full bg-amber-50 flex items-center justify-center mb-3">
-                  <Icon size={18} className="text-amber-800" strokeWidth={1.5} />
-                </div>
-
-                <h4
-                  className="text-sm font-semibold text-stone-900 mb-1"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
-                >
-                  {title}
-                </h4>
-
-                <p className="text-xs text-stone-500 leading-relaxed">
-                  {desc}
-                </p>
-              </div>
-            ))}
-          </div>
+          ))}
 
         </div>
+
       </div>
     </section>
   );

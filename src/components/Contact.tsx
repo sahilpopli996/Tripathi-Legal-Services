@@ -144,7 +144,7 @@ export default function Contact() {
 
           <p>
             <strong>Office Address:</strong><br />
-            Chamber No. 818A,<br />
+            Chamber No. 661,<br />
             Lawyer's Chamber Block,<br />
             Dwarka District Court,<br />
             Sector-10, Dwarka, New Delhi – 110077

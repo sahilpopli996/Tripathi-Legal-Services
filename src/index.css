@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -24,6 +25,7 @@ h1, h2, h3, h4, h5 {
   font-family: 'Playfair Display', serif;
 }
 
+/* COMPONENTS */
 @layer components {
   .nav-link {
     @apply text-sm font-medium text-stone-700 hover:text-amber-700 transition-colors duration-200 relative;
@@ -53,8 +55,6 @@ h1, h2, h3, h4, h5 {
 
   .btn-primary {
     @apply bg-amber-800 text-white px-8 py-3 font-medium tracking-wide hover:bg-amber-900 transition-colors duration-200 uppercase;
-    font-family: 'Inter', sans-serif;
-    letter-spacing: 0.05em;
   }
 
   .btn-secondary {
@@ -66,16 +66,80 @@ h1, h2, h3, h4, h5 {
   }
 }
 
+/* UTILITIES */
 @layer utilities {
-  .font-serif-display {
-    font-family: 'Playfair Display', serif;
-  }
-
-  .font-cormorant {
-    font-family: 'Cormorant Garamond', serif;
-  }
-
   .scroll-mt-24 {
     scroll-margin-top: 6rem;
+  }
+}
+
+/* ================= PRINT FIX ================= */
+@media print {
+
+  /* HEADER FIX */
+  header {
+    position: static !important;
+    box-shadow: none !important;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 12px;
+  }
+
+  /* REMOVE UI ELEMENTS */
+  button,
+  .no-print {
+    display: none !important;
+  }
+
+  .fixed,
+  .sticky {
+    position: static !important;
+  }
+
+  /* PAGE SETUP */
+  body {
+    margin: 14px;
+    zoom: 0.92;
+  }
+
+  /* 🔥 MOST IMPORTANT FIX */
+  #services {
+    page-break-before: always !important;
+  }
+
+  /* 🔥 KEEP HEADING WITH TEXT */
+  .services-header {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  /* 🔥 FORCE HEADING TO STAY */
+  .section-heading {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* 🔥 PREVENT EMPTY SPACE BUG */
+  .grid {
+    display: block !important;
+  }
+
+  .grid > div {
+    margin-bottom: 14px;
+  }
+
+  /* CARDS */
+  .service-card {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* CLEAN LOOK */
+  * {
+    box-shadow: none !important;
+  }
+
+  img {
+    max-width: 100% !important;
+    height: auto !important;
   }
 }

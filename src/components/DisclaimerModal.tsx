@@ -4,15 +4,11 @@ export default function DisclaimerModal() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const accepted = localStorage.getItem("disclaimerAccepted");
-    if (!accepted) {
-      setVisible(true);
-      document.body.style.overflow = "hidden";
-    }
+    setVisible(true); // 🔥 ALWAYS show on refresh
+    document.body.style.overflow = "hidden";
   }, []);
 
   const handleAgree = () => {
-    localStorage.setItem("disclaimerAccepted", "true");
     setVisible(false);
     document.body.style.overflow = "auto";
   };
@@ -57,7 +53,7 @@ export default function DisclaimerModal() {
             className="w-28 mx-auto mb-2"
           />
 
-          {/* 🔥 ADDED TEXT */}
+          {/* TITLE */}
           <p
             className="text-lg font-semibold text-stone-800 mb-4"
             style={{ fontFamily: "'Playfair Display', serif" }}
