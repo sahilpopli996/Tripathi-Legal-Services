@@ -12,13 +12,11 @@ const highlights = [
 export default function WhyChooseUs() {
   return (
     <section id="why-choose-us" className="py-20 bg-white scroll-mt-24">
-
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
 
         {/* IMAGE BANNER */}
         <div className="mb-12 flex justify-center">
           <div className="relative w-[70%] md:w-[70%] h-[240px] md:h-[300px] overflow-hidden rounded-sm">
-
             <img
               src="/whychooseus.jpg"
               alt="Why Choose Us"
@@ -29,10 +27,9 @@ export default function WhyChooseUs() {
           </div>
         </div>
 
-        {/* TEXT CONTENT CENTER */}
-        <div className="text-center max-w-3xl mx-auto">
-
-          <div className="w-12 h-[3px] bg-amber-700 mx-auto mb-4"></div>
+        {/* TEXT CONTENT */}
+        <div className="max-w-3xl mx-auto text-left">
+          <div className="w-12 h-[3px] bg-amber-700 mb-4"></div>
 
           <h2
             className="text-2xl md:text-3xl font-bold text-stone-900 mb-6"
@@ -41,7 +38,10 @@ export default function WhyChooseUs() {
             WHY CHOOSE US
           </h2>
 
-          <div className="space-y-4 text-sm md:text-base text-stone-600 leading-relaxed">
+          <div
+            className="space-y-4 text-sm md:text-base text-stone-600 leading-relaxed"
+            style={{ textAlign: "justify" }}
+          >
             <p>
               We provide legal consultancy of the highest standard, upholding professionalism, integrity,
               and ethics. Our experienced team ensures clients operate within the legal framework, mitigate
@@ -58,33 +58,6 @@ export default function WhyChooseUs() {
               Mergers, and Property Law.
             </p>
           </div>
-        </div>
-
-        {/* CARDS BELOW (3 x 2 GRID) */}
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-
-          {highlights.map(({ icon: Icon, title, desc }) => (
-            <div
-              key={title}
-              className="p-5 border border-stone-200 hover:border-amber-400 hover:shadow-md transition duration-300 bg-white text-center"
-            >
-              <div className="w-10 h-10 rounded-full bg-amber-50 flex items-center justify-center mx-auto mb-3">
-                <Icon size={18} className="text-amber-800" strokeWidth={1.5} />
-              </div>
-
-              <h4
-                className="text-sm font-semibold text-stone-900 mb-1"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
-                {title}
-              </h4>
-
-              <p className="text-xs text-stone-500 leading-relaxed">
-                {desc}
-              </p>
-            </div>
-          ))}
-
         </div>
 
       </div>

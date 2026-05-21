@@ -20,7 +20,6 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // ✅ Basic validation
     if (!form.name || !form.email || !form.phone || !form.message) {
       alert("Please fill all fields");
       return;
@@ -37,10 +36,10 @@ export default function Contact() {
 
     emailjs
       .send(
-        "tripathi_service",       // ✅ your service ID
-        "template_vrfwilu",       // ✅ your template ID
+        "tripathi_service",
+        "template_vrfwilu",
         templateParams,
-        "JVmqDZSHj5QU7zaFw"       // ✅ your public key
+        "JVmqDZSHj5QU7zaFw"
       )
       .then(
         () => {
@@ -65,16 +64,12 @@ export default function Contact() {
   return (
     <section id="contact" className="py-20 px-6 bg-white">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
-
-        {/* LEFT FORM */}
         <div>
           <h2 className="text-2xl font-semibold mb-8">
             Send Us a Message
           </h2>
 
           <form onSubmit={handleSubmit} className="space-y-6">
-
-            {/* NAME */}
             <div>
               <label className="text-sm block mb-1">Name</label>
               <input
@@ -87,7 +82,6 @@ export default function Contact() {
               />
             </div>
 
-            {/* PHONE */}
             <div>
               <label className="text-sm block mb-1">Phone No.</label>
               <input
@@ -100,7 +94,6 @@ export default function Contact() {
               />
             </div>
 
-            {/* EMAIL */}
             <div>
               <label className="text-sm block mb-1">Email Address</label>
               <input
@@ -113,7 +106,6 @@ export default function Contact() {
               />
             </div>
 
-            {/* MESSAGE */}
             <div>
               <label className="text-sm block mb-1">Message</label>
               <textarea
@@ -125,7 +117,6 @@ export default function Contact() {
               />
             </div>
 
-            {/* BUTTON */}
             <button
               type="submit"
               disabled={loading}
@@ -136,7 +127,6 @@ export default function Contact() {
           </form>
         </div>
 
-        {/* RIGHT SIDE */}
         <div className="space-y-6">
           <h2 className="text-2xl font-semibold">
             Contact Information
@@ -159,8 +149,12 @@ export default function Contact() {
             <strong>Email:</strong><br />
             advapoorvat@gmail.com
           </p>
-        </div>
 
+          <p>
+            <strong>Working Hours:</strong><br />
+            10 AM – 6 PM
+          </p>
+        </div>
       </div>
     </section>
   );
