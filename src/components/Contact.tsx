@@ -65,11 +65,21 @@ export default function Contact() {
     <section id="contact" className="py-20 px-6 bg-white">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
         <div>
-          <h2 className="text-2xl font-semibold mb-8">
-            Send Us a Message
-          </h2>
+           <p
+  className="text-2xl md:text-3xl uppercase tracking-[0.12em] text-amber-800 font-bold mb-3"
+  style={{ fontFamily: "'Playfair Display', serif" }}
+>
+  For Legal Consultation
+</p>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+  <h2
+    className="text-2xl font-semibold mb-8"
+    style={{ fontFamily: "'Playfair Display', serif" }}
+  >
+    Send Us a Message
+  </h2>
+
+  <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label className="text-sm block mb-1">Name</label>
               <input

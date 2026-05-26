@@ -5,7 +5,6 @@ export default function Blog() {
     <section id="blog" className="py-20 bg-stone-50 scroll-mt-24">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
 
-        {/* HEADER */}
         <div className="text-center mb-14">
           <div className="gold-divider mx-auto"></div>
           <h2 className="section-heading">Blog</h2>
@@ -14,19 +13,15 @@ export default function Blog() {
           </p>
         </div>
 
-        {/* GRID */}
         <div className="grid md:grid-cols-2 gap-8">
 
-          {/* 🔥 LEGAL ARTICLES */}
           <a
             href="https://docs.google.com/document/d/10GtYY-pSKNc6N2hzj2pDWoJ1vXWkN5MFUnk3hzOjjI4/edit?tab=t.0"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white border border-stone-200 hover:border-amber-300 hover:shadow-md transition-all duration-300 flex flex-col items-center text-center p-8"
           >
-
-            {/* 🔥 IMAGE TOP */}
-            <div className="w-40 h-40 mb-6">
+            <div className="w-72 h-72 md:w-80 md:h-80 mb-6">
               <img
                 src="/blog.jpg"
                 alt="Blog"
@@ -34,9 +29,7 @@ export default function Blog() {
               />
             </div>
 
-            {/* CONTENT */}
             <div className="flex flex-col items-center">
-
               <div className="w-14 h-14 rounded-full bg-amber-50 flex items-center justify-center mb-4">
                 <BookOpen size={24} className="text-amber-800" strokeWidth={1.5} />
               </div>
@@ -56,20 +49,16 @@ export default function Blog() {
                 Read Blogs
                 <ArrowRight size={14} />
               </div>
-
             </div>
           </a>
 
-          {/* 🔥 VIDEO RESOURCES */}
           <a
             href="https://drive.google.com/drive/folders/1b-pJYX8Tr8TY39lWEoBi3VCvlbcVXN0B?usp=drive_link"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white border border-stone-200 hover:border-amber-300 hover:shadow-md transition-all duration-300 flex flex-col items-center text-center p-8"
           >
-
-            {/* 🔥 IMAGE TOP */}
-            <div className="w-40 h-40 mb-6">
+            <div className="w-72 h-72 md:w-80 md:h-80 mb-6">
               <img
                 src="/play.jpg"
                 alt="Videos"
@@ -77,9 +66,7 @@ export default function Blog() {
               />
             </div>
 
-            {/* CONTENT */}
             <div className="flex flex-col items-center">
-
               <div className="w-14 h-14 rounded-full bg-amber-50 flex items-center justify-center mb-4">
                 <Video size={24} className="text-amber-800" strokeWidth={1.5} />
               </div>
@@ -99,7 +86,6 @@ export default function Blog() {
                 View Videos
                 <ArrowRight size={14} />
               </div>
-
             </div>
           </a>
 
